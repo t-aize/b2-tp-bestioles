@@ -15,7 +15,7 @@ import java.awt.*;
  * Pour exemple, la superclasse définit un comportement par défaut pour toutes ces méthodes.
  *
  */
-public class Bestiole {
+public abstract class Bestiole {
 
   public static enum Voisin {
     MUR, RIEN, MEME, AUTRE
@@ -29,17 +29,11 @@ public class Bestiole {
     NORD, SUD, EST, OUEST
   };
 
-  public Action getAction(BestioleInfo info) {
-    return Action.GAUCHE;
-  }
+  public abstract Action getAction(BestioleInfo info);
 
-  public Color getCouleur() {
-    return Color.BLACK;
-  }
+  public abstract Color getCouleur();
 
-  public String toString() {
-    return "?";
-  }
+  public abstract String toString();
 
   // Ceci emêche les classes dérivées de redéfinir l'égalité
   // d'objets Bestiole (important pour que le simulateur fonctionne correctement)
